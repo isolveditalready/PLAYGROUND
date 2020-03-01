@@ -1,8 +1,19 @@
 from bikeRental import BikeRental, Customer
+import sqlite3
+
+conn =  sqlite3.connect('bikeDb')
+dbConnectCursor = conn.cursor()
+
+
 
 def main():
-    shop = BikeRental(100)
+    numOfBikes = dbconnectCursor('select numOfBikes from bikeTable')
+    shop = BikeRental(numOfBikes)
     customer = Customer()
+
+
+
+    https://github.com/gurupratap-matharu/Bike-Rental-System.git
 
     while True:
         print("""

@@ -62,3 +62,10 @@ python main.py
 
 python3 main.py
 ```
+
+## Personal Mod for learning
+
+### database setup using sqlite3
+    db name   : bikeDb
+    db table  : bikeTable
+    col data  : numOfBikes
