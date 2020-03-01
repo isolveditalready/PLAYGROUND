@@ -11,10 +11,6 @@ def main():
     shop = BikeRental(numOfBikes)
     customer = Customer()
 
-
-
-    https://github.com/gurupratap-matharu/Bike-Rental-System.git
-
     while True:
         print("""
         ====== Bike Rental Shop =======
