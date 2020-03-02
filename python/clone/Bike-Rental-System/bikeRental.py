@@ -1,12 +1,11 @@
 import datetime
 
 class BikeRental:
-    
+
     def __init__(self,stock=0):
         """
         Our constructor class that instantiates bike rental shop.
         """
-
         self.stock = stock
 
     def displaystock(self):

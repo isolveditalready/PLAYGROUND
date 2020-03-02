@@ -1,13 +1,11 @@
 from bikeRental import BikeRental, Customer
 import sqlite3
-
-conn =  sqlite3.connect('bikeDb')
-dbConnectCursor = conn.cursor()
-
-
+from dbAction import dbActionMe
 
 def main():
-    numOfBikes = dbconnectCursor('select numOfBikes from bikeTable')
+    db = dbActionMe()
+    numOfBikes = db.dbRead()
+    
     shop = BikeRental(numOfBikes)
     customer = Customer()
 
@@ -36,6 +34,7 @@ def main():
         elif choice == 2:
             customer.rentalTime = shop.rentBikeOnHourlyBasis(customer.requestBike())
             customer.rentalBasis = 1
+            db.dbUpdate(shop.stock)
 
         elif choice == 3:
             customer.rentalTime = shop.rentBikeOnDailyBasis(customer.requestBike())
