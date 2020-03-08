@@ -85,7 +85,9 @@ void read_cards(void) {
                 else if ( card_exists[rank][suit])
                     printf("Duplicate card; ignored\n");
                 else {
+                    printf("rank is now %i\n", rank);
                     num_in_rank[rank]++;
+                    printf("num_in_rank with rank is now %i\n", num_in_rank[rank]);
                     num_in_suit[suit]++;
                     card_exists[rank][suit] = TRUE;
                     cards_read++;
@@ -110,8 +112,25 @@ void analyze_hand(void){
 
     /* check for straight */
     rank = 0;
-    while (num_in_rank[rank] ==0) rank++;
+    printf("right before checking straight, num_in_rank is %i\n", num_in_rank[rank]);
+    // checking to see where it starts..  
+    // if user input 3j,3d,5d,9h,kh, starting point would be 
+    //  num_in_rank[0] == 0
+    //  num_in_rank[1] == 1
+    //  so that program knows where to begin to count for straight
+    while (num_in_rank[rank] ==0) {
+        printf("___inside of num_in_rank ==> rank is %i\n", rank);
+        printf("___inside of num_in_rank ==> rank out is %i\n", num_in_rank[rank]);
+        rank++;
+    }
+
+    // now that it knows where it begins, 
+    // check and see if num_in_rank[1] exists, and it does, 
+    //    so it increase num_consec by 1 and increases rank by 1
+    //     does num_in_rank[2] exists(which is 4 of any kind and answer is NO) 
+    //     so it's NOT straight
     for (; rank < NUM_RANKS && num_in_rank[rank]; rank++)
+        printf("i am here overeee rank is %i num_in_rank is %i\n", rank, num_in_rank[rank]);
         num_consec++;
     if (num_consec == NUM_CARDS) {
         straight = TRUE;
@@ -120,7 +139,7 @@ void analyze_hand(void){
 
     /* check for 4 of a kind, 3 of a kind, and pairs */
     for (rank = 0; rank < NUM_RANKS; rank++) {
-        if ( num_in_rank[rank ] == 4)  four = TRUE;
+        if ( num_in_rank[rank] == 4)  four = TRUE;
         if ( num_in_rank[rank] == 3 )  three = TRUE;
         if ( num_in_rank[rank] == 2 )  pairs++; 
     }
