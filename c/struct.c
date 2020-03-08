@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "myfiles.h"
 
 struct rect screen;
 struct point middle;

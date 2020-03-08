@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .bar-container{
+                width:200px;
+                height:30px;
+                margin:30px;
+                background-color: grey;
+            }
+            .bar {
+                height:30px;
+                width:0px;
+                transition: width 0.1s ease;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bar-container">
+            <div class="bar"/>
+        </div>
+        <script>
+            var progress = 0;
+            
+            let refreshId = setInterval(function(){
+                                let myElement = document.querySelector('.bar');
+                                let actualProgress = progress + 'px';
+                                myElement.style.width = actualProgress;
+                                progress += 1;
+                                console.log('progress is ' + progress);
+                                if (progress >= 200 ) {
+                                    clearInterval(refreshId);
+                                }
+                            },9);
+        </script>
+
+    </body>
+</html>
