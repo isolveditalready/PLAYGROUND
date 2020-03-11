@@ -88,7 +88,25 @@ print(a(5,6))
 
 
 # decorator
-def calculateBigNumbers:
-    for num in xrange(1,100):
-        mulNum = num * num;
-        print(f"result is {mulNum}")
+import time
+
+def timer(func):
+    def wrapper(*args,**kwargs):
+        start = time.time()
+        rv = func()
+        total = time.time() - start
+        print("time : " , total)
+        return rv
+    return wrapper
+
+#decorator declaration 
+@timer
+def test():
+    for _ in range(1000000):
+        pass
+@timer
+def test2():
+    time.sleep(2)
+
+test()
+test2()
