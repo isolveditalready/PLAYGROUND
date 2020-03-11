@@ -71,3 +71,17 @@ class SuperHero(Person):
 	def reveal_identity(self):
 		super(SuperHero,self).veal_identity()
 		print(f".. and I am {self.hero_name}")
+
+
+# lambda function :  anonymous function
+a = lambda x,y: x+y
+print(a(5,6))
+
+## do you understand [:]
+# a = [1,2,3,4,5]
+#____________________________________
+# a[:] >>> [1, 2, 3, 4, 5]
+# a[:2] >>> [1, 2]
+# a[2:] >>> [3, 4, 5]
+# a[::-1]>>> [5, 4, 3, 2, 1]
+# a[1:3] >>> [2, 3]

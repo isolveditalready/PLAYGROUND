@@ -1,0 +1,3 @@
+#eventloop
+
+event loop, which handles the execution of multiple chunks of your program over time, each time invoking the JS Engine.
