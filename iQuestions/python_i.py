@@ -85,3 +85,10 @@ print(a(5,6))
 # a[2:] >>> [3, 4, 5]
 # a[::-1]>>> [5, 4, 3, 2, 1]
 # a[1:3] >>> [2, 3]
+
+
+# decorator
+def calculateBigNumbers:
+    for num in xrange(1,100):
+        mulNum = num * num;
+        print(f"result is {mulNum}")
